@@ -9,6 +9,6 @@ namespace SchoolManagementSystem.Repositories
 {
     public interface IRepository
     {
-        int SaveStudent(Student obj);
+        Student SaveStudent(Student obj);
     }
 }

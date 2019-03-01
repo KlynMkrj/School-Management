@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Search Student";
+}
+
+<div>
+
+    <h2>Please Provide The Following Search Details</h2>
+
+    <form action="/Students/OperateStudent" method="post">
+
+        <br /><br />
+        Student Roll No. : <input type="text" id="txtRoll" name="Roll" value="" />
+
+        <br /><br />
+        Student Standard : <input type="text" id="txtStandard" name="Standard" value="" />
+
+        <br /><br />
+        <p class="text-center">
+            <input type="submit" id="btnSearch" name="StudentSearch" value="Search Student" />
+        </p>
+
+    </form>
+
+</div>

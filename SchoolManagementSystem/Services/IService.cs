@@ -8,6 +8,6 @@ namespace SchoolManagementSystem.Services
 {
     public interface IService
     {
-        int SaveStudent(Student obj);
+        Student SaveStudent(Student obj);
     }
 }

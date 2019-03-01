@@ -14,7 +14,7 @@ namespace SchoolManagementSystem.Services
             repository = res;
         }
 
-        public int SaveStudent(Student obj)
+        public Student SaveStudent(Student obj)
         {
             return repository.SaveStudent(obj);
         }

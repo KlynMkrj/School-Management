@@ -1,7 +1,7 @@
-﻿@model SchoolManagementSystem.ViewModel.StudentVM
+﻿@*@model SchoolManagementSystem.ViewModel.StudentVM*@
 
 @{
-    ViewData["Title"] = "Home Page 1";
+    ViewData["Title"] = "Add Student";
 }
 
 <div>
@@ -9,10 +9,10 @@
     <form action="/Students/SaveStudent" method="post">
 
         <br />
-        <p class="text-center"><b><u>Add New Student</u></b></p>
+        <p class="text-center"><h2>Add New Student</h2></p>
 
         <br /><br />
-        Name: <input type="text" id="txtFName" name="Name" value="" />
+        Name: <input type="text" id="txtName" name="Name" value="" />
 
         <br /><br />
         Standard: <input type="text" id="txtStandard" name="Standard" value="" />

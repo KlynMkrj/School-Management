@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using SchoolManagementSystem.Models;
 using SchoolManagementSystem.Services;
+using SchoolManagementSystem.ViewModel;
 
 namespace SchoolManagementSystem.Controllers
 {
@@ -19,21 +20,47 @@ namespace SchoolManagementSystem.Controllers
             service = ser;
         }
 
+
         public ActionResult AddStudent()
         {
             return View();
         }
 
-        public ActionResult SaveStudent(Student objStudent)
+        public ActionResult SaveStudent(Student obj)
         {
-            service.SaveStudent(objStudent);
+            Student objStudent = new Student();
+            objStudent = service.SaveStudent(obj);
 
+            ViewData["OperateMessage"] = "Student created successfully. Roll no. : " + objStudent.RollNo + ". Standard : " + objStudent.Standard;
+            return View("OperatedStudent");
+        }
+
+        public ActionResult SearchStudentHome()
+        {            
             return View();
         }
 
+        public ActionResult OperateStudent(Student obj)
+        {
+            StudentVM objVM = new StudentVM();
+            objVM.RollNo = obj.RollNo;
+            objVM.Name = obj.Name;
+            objVM.Standard = obj.Standard;
+            objVM.ContactNo = obj.ContactNo;
+            return View(objVM);
+        }
 
+        public ActionResult UpdateStudent(Student obj)
+        {
+            ViewData["OperateMessage"] = "Student updated successfully. Roll no. : " + obj.RollNo + ". Standard : " + obj.Standard;
+            return View("OperatedStudent");
+        }
 
-
+        public ActionResult DeleteStudent(Student obj)
+        {
+            ViewData["OperateMessage"] = "Student deleted successfully. Roll no. : " + obj.RollNo + ". Standard : " + obj.Standard;
+            return View("OperatedStudent");
+        }
 
 
         // GET: Students
