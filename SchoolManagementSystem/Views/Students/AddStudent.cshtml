@@ -1,0 +1,30 @@
+﻿@model SchoolManagementSystem.ViewModel.StudentVM
+
+@{
+    ViewData["Title"] = "Home Page 1";
+}
+
+<div>
+
+    <form action="/Students/SaveStudent" method="post">
+
+        <br />
+        <p class="text-center"><b><u>Add New Student</u></b></p>
+
+        <br /><br />
+        Name: <input type="text" id="txtFName" name="Name" value="" />
+
+        <br /><br />
+        Standard: <input type="text" id="txtStandard" name="Standard" value="" />
+
+        <br /><br />
+        Contact no.: <input type="text" id="txtContact" name="ContactNo" value="" />
+
+        <br /><br />
+        <p class="text-center">
+            <input type="submit" id="btnSubmit" name="StudentSubmit" value="Save Student" />
+        </p>
+
+    </form>
+
+</div>
