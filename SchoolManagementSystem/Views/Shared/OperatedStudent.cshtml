@@ -1,14 +1,16 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Student Operation Complete";
 }
 
 <div>
 
-    <h2>
-        @{
+    @{
         string message = (string)ViewData["OperateMessage"];
-        }
-    </h2>
+    }
+
+    <br /><br />
+    <h4>
+        @message 
+    </h4>
 
 </div>
