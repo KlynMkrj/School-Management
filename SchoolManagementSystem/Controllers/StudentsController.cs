@@ -32,7 +32,7 @@ namespace SchoolManagementSystem.Controllers
             objStudent = service.SaveStudent(obj);
 
             ViewData["OperationMessage"] = "Student created successfully. Roll no. : " + objStudent.RollNo + ". Standard : " + objStudent.Standard + "th";
-            return View("OperatedStudent");
+            return View("OperationResult");
         }
 
         public ActionResult SearchStudent()
@@ -53,13 +53,13 @@ namespace SchoolManagementSystem.Controllers
         public ActionResult UpdateStudent(Student obj)
         {
             ViewData["OperationMessage"] = "Student updated successfully. Roll no. : " + obj.RollNo + ". Standard : " + obj.Standard + "th";
-            return View("OperatedStudent");
+            return View("OperationResult");
         }
 
         public ActionResult DeleteStudent(Student obj)
         {
             ViewData["OperationMessage"] = "Student deleted successfully. Roll no. : " + obj.RollNo + ". Standard : " + obj.Standard + "th";
-            return View("OperatedStudent");
+            return View("OperationResult");
         }
 
 
