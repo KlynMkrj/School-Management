@@ -6,24 +6,28 @@
 
 <div>
 
+    <h2><u>Add New Students</u></h2>
+
+
     <form action="/Students/SaveStudent" method="post">
 
-        <br />
-        <p class="text-center"><h2>Add New Student</h2></p>
+        <h4>
+            Name:
+        </h4>
+        <input type="text" id="txtName" name="Name" value="" />
+
+        <h4>
+            Standard:
+        </h4>
+        <input type="text" id="txtStandard" name="Standard" value="" />
+
+        <h4>Contact no.:</h4>
+        <input type="text" id="txtContact" name="ContactNo" value="" />
 
         <br /><br />
-        Name: <input type="text" id="txtName" name="Name" value="" />
-
-        <br /><br />
-        Standard: <input type="text" id="txtStandard" name="Standard" value="" />
-
-        <br /><br />
-        Contact no.: <input type="text" id="txtContact" name="ContactNo" value="" />
-
-        <br /><br />
-        <p class="text-center">
-            <input type="submit" id="btnSubmit" name="StudentSubmit" value="Save Student" />
-        </p>
+        <div class="text-center">
+            <input type="submit" id="btnSubmit" name="StudentSubmit" value="Save" />
+        </div>
 
     </form>
 

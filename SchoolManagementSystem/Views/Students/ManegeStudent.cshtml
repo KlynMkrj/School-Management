@@ -1,0 +1,45 @@
+﻿@model SchoolManagementSystem.ViewModel.StudentVM
+
+@{
+    ViewData["Title"] = "Update or Delete Student";
+}
+
+<div>
+
+    @{
+        string strRoll = Model.RollNo.ToString();
+        string strStandard = Model.Standard.ToString();
+    }
+
+    
+    <h2><u>Update or Delete Existing Students</u></h2>
+
+
+    <form action="" method="post" id="frmStudent">
+
+        <h4>Student Roll No. : @strRoll </h4>        
+
+        <h4>Student Standard : @strStandard th </h4>
+        
+
+        <h4>Student Name :</h4>
+        <input type="text" id="txtName" name="Name" value="" />        
+
+        <h4>Student Contact no. :</h4>
+        <input type="text" id="txtContact" name="Contact" value="" />        
+
+        <br /><br />
+        <div class="text-center">
+            <input type="submit" id="btnUpdate" name="StudentUpdate" value="Update"
+                   onclick="document.getElementById('frmStudent').action = '/Students/UpdateStudent'" />
+        </div>
+
+        <br />
+        <div class="text-center">
+            <input type="submit" id="btnDelete" name="StudentDelete" value="Delete"
+                   onclick="document.getElementById('frmStudent').action = '/Students/DeleteStudent'" />
+        </div>
+
+    </form>
+
+</div>
