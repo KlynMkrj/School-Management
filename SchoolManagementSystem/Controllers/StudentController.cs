@@ -7,17 +7,17 @@ using Microsoft.AspNetCore.Mvc;
 
 using SchoolManagementSystem.Models;
 using SchoolManagementSystem.Services;
-using SchoolManagementSystem.ViewModel;
+using SchoolManagementSystem.ViewModels;
 
 namespace SchoolManagementSystem.Controllers
 {
     public class StudentController : Controller
     {
-        IService service;
+        IService _service;
 
-        public StudentController(IService ser)
+        public StudentController(IService service)
         {
-            service = ser;
+            _service = service;
         }
 
 
@@ -37,7 +37,7 @@ namespace SchoolManagementSystem.Controllers
         {
             try
             {
-                Student objStudent = service.SaveStudent(student);
+                Student objStudent = _service.SaveStudent(student);
 
                 ViewData["OperationMessage"] = "Student created successfully. Roll no. : " + objStudent.RollNo + ". Standard : " + objStudent.Standard + "th";
                 return View("OperationResult");
