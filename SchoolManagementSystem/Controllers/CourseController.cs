@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
+using Newtonsoft.Json;
 using SchoolManagementSystem.Models;
 using SchoolManagementSystem.Services;
 using SchoolManagementSystem.ViewModels;
@@ -35,10 +36,8 @@ namespace SchoolManagementSystem.Controllers
         public ActionResult SaveCourse(Course course)
         {
             try
-            {
-                Course objCourse = _service.SaveCourse(course);
-
-                ViewData["OperationMessage"] = "Course created successfully. Course ID. : " + objCourse.CourseId + ". Course name : " + objCourse.Name;
+            {                
+                ViewData["OperationMessage"] = _service.SaveCourse(course);
                 return View("OperationResult");
             }
             catch
@@ -64,7 +63,9 @@ namespace SchoolManagementSystem.Controllers
             try
             {
                 CourseVM objCourseVM = _service.SearchCourse(course);
-                                               
+
+                TempData["SearchedCourse"] = JsonConvert.SerializeObject(objCourseVM);
+
                 return View(objCourseVM);
             }
             catch
@@ -73,11 +74,14 @@ namespace SchoolManagementSystem.Controllers
             }
         }
 
-        public ActionResult DeleteCourse(Course course)
+        //public ActionResult DeleteCourse(Course course)
+        public ActionResult DeleteCourse()
         {
             try
             {
-                ViewData["OperationMessage"] = _service.DeleteCourse(course);
+                CourseVM objCourseVM = new CourseVM();
+                objCourseVM = (CourseVM)JsonConvert.DeserializeObject(TempData["SearchedCourse"].ToString());
+                ViewData["OperationMessage"] = _service.DeleteCourse(objCourseVM);
                 return View("OperationResult");
             }
             catch

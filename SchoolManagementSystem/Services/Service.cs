@@ -32,9 +32,12 @@ namespace SchoolManagementSystem.Services
             return objStudentVM;            
         }
 
-        public Course SaveCourse(Course course)
+        public string SaveCourse(Course objCourse)
         {
-            return _repository.SaveCourse(course);
+            Course course = _repository.SaveCourse(objCourse);
+            string strSaveMessage = "Course created successfully. Course ID. : " + course.CourseId + ". Course name : " + course.Name;
+
+            return strSaveMessage;
         }
 
         public CourseVM SearchCourse(Course objCourse)
@@ -48,8 +51,12 @@ namespace SchoolManagementSystem.Services
             return objCourseVM;
         }
 
-        public string DeleteCourse(Course objCourse)
+        public string DeleteCourse(CourseVM objCourseVM)
         {
+            Course objCourse = new Course();
+            objCourse.CourseId = objCourseVM.CourseId;
+            objCourse.Name = objCourseVM.Name;
+
             Course course = _repository.DeleteCourse(objCourse);
             string strDeleteMessage = "Course deleted successfully. Course ID. : " + course.CourseId + ". Course Name : " + course.Name;
 

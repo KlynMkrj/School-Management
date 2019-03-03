@@ -8,7 +8,7 @@
 
     @{
         string strCourseId = Model.CourseId.ToString();
-        string strCourseName = Convert.ToString(Model.Name);
+        string strCourseName = Model.Name;        
     }
 
 
@@ -17,10 +17,10 @@
 
     <form action="/Course/DeleteCourse" method="post" id="frmCourse">
 
-        <h4>Course Id. : @strCourseId </h4>        
+        <h4>Course Id. : @strCourseId </h4>
 
-        <h4>Course Name : @strCourseName </h4>        
-                
+        <h4>Course Name : @strCourseName </h4>
+
         <div class="text-center">
             <input type="submit" id="btnDelete" name="CourseDelete" value="Delete" />
         </div>
