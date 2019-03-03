@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-using Newtonsoft.Json;
 using SchoolManagementSystem.Models;
 using SchoolManagementSystem.Services;
+using SchoolManagementSystem.Services.ExtMethods;
 using SchoolManagementSystem.ViewModels;
 
 namespace SchoolManagementSystem.Controllers
@@ -63,8 +63,8 @@ namespace SchoolManagementSystem.Controllers
             try
             {
                 CourseVM objCourseVM = _service.SearchCourse(course);
-
-                TempData["SearchedCourse"] = JsonConvert.SerializeObject(objCourseVM);
+                                
+                TempData.Put<CourseVM>("SearchedCourse", objCourseVM);
 
                 return View(objCourseVM);
             }
@@ -73,14 +73,15 @@ namespace SchoolManagementSystem.Controllers
                 return View("HandledException");
             }
         }
-
-        //public ActionResult DeleteCourse(Course course)
+        
         public ActionResult DeleteCourse()
         {
             try
             {
-                CourseVM objCourseVM = new CourseVM();
-                objCourseVM = (CourseVM)JsonConvert.DeserializeObject(TempData["SearchedCourse"].ToString());
+                CourseVM objCourseVM;                
+
+                objCourseVM = TempData.Get<CourseVM>("SearchedCourse");
+
                 ViewData["OperationMessage"] = _service.DeleteCourse(objCourseVM);
                 return View("OperationResult");
             }
