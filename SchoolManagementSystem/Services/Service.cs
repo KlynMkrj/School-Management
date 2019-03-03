@@ -9,14 +9,19 @@ namespace SchoolManagementSystem.Services
     {
         IRepository repository;
 
-        public Service(IRepository res)
+        public Service(IRepository irepository)
         {
-            repository = res;
+            repository = irepository;
         }
 
-        public Student SaveStudent(Student obj)
+        public Student SaveStudent(Student student)
         {
-            return repository.SaveStudent(obj);
+            return repository.SaveStudent(student);
+        }
+
+        public Course SaveCourse(Course course)
+        {
+            return repository.SaveCourse(course);
         }
     }
 }

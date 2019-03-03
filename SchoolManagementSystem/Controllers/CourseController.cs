@@ -36,9 +36,9 @@ namespace SchoolManagementSystem.Controllers
         {
             try
             {
-                Student objStudent = _service.SaveStudent(student);
+                Course objCourse = _service.SaveCourse(course);
 
-                ViewData["OperationMessage"] = "Student created successfully. Roll no. : " + objStudent.RollNo + ". Standard : " + objStudent.Standard + "th";
+                ViewData["OperationMessage"] = "Course created successfully. Course ID. : " + objCourse.CourseId + ". Course name : " + objCourse.Name + "th";
                 return View("OperationResult");
             }
             catch
@@ -59,16 +59,15 @@ namespace SchoolManagementSystem.Controllers
             }
         }
 
-        public ActionResult ManegeCourse(Course student)
+        public ActionResult ManegeCourse(Course course)
         {
             try
             {
                 CourseVM objCourseVM = new CourseVM();
-                objStudentVM.RollNo = student.RollNo;
-                objStudentVM.Name = student.Name;
-                objStudentVM.Standard = student.Standard;
-                objStudentVM.ContactNo = student.ContactNo;
-                return View(objStudentVM);
+                objCourseVM.CourseId = course.CourseId;
+                objCourseVM.Name = course.Name;
+               
+                return View(objCourseVM);
             }
             catch
             {
@@ -76,11 +75,11 @@ namespace SchoolManagementSystem.Controllers
             }
         }
 
-        public ActionResult DeleteCourse(Course obj)
+        public ActionResult DeleteCourse(Course course)
         {
             try
             {
-                ViewData["OperationMessage"] = "Student deleted successfully. Roll no. : " + obj.RollNo + ". Standard : " + obj.Standard + "th";
+                ViewData["OperationMessage"] = "Course deleted successfully. Course ID. : " + course.CourseId + ". Course Name : " + course.Name;
                 return View("OperationResult");
             }
             catch

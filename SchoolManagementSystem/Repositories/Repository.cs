@@ -9,10 +9,16 @@ namespace SchoolManagementSystem.Repositories
 {
     public class Repository : IRepository
     {
-        public Student SaveStudent(Student obj)
+        public Student SaveStudent(Student student)
         {
-            obj.RollNo = 5;
-            return obj;
+            student.RollNo = 5;
+            return student;
+        }
+
+        public Course SaveCourse(Course course)
+        {
+            course.CourseId = 3;
+            return course;
         }
     }
 }

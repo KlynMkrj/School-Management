@@ -77,11 +77,11 @@ namespace SchoolManagementSystem.Controllers
             }
         }
 
-        public ActionResult UpdateStudent(Student obj)
+        public ActionResult UpdateStudent(Student student)
         {
             try
             {
-                ViewData["OperationMessage"] = "Student updated successfully. Roll no. : " + obj.RollNo + ". Standard : " + obj.Standard + "th";
+                ViewData["OperationMessage"] = "Student updated successfully. Roll no. : " + student.RollNo + ". Standard : " + student.Standard + "th";
                 return View("OperationResult");
             }
             catch
@@ -90,11 +90,11 @@ namespace SchoolManagementSystem.Controllers
             }
         }
 
-        public ActionResult DeleteStudent(Student obj)
+        public ActionResult DeleteStudent(Student student)
         {
             try
             {
-                ViewData["OperationMessage"] = "Student deleted successfully. Roll no. : " + obj.RollNo + ". Standard : " + obj.Standard + "th";
+                ViewData["OperationMessage"] = "Student deleted successfully. Roll no. : " + student.RollNo + ". Standard : " + student.Standard + "th";
                 return View("OperationResult");
             }
             catch

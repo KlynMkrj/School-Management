@@ -9,6 +9,8 @@ namespace SchoolManagementSystem.Repositories
 {
     public interface IRepository
     {
-        Student SaveStudent(Student obj);
+        Student SaveStudent(Student student);
+
+        Course SaveCourse(Course course);
     }
 }

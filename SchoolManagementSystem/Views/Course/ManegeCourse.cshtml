@@ -1,0 +1,30 @@
+﻿@model SchoolManagementSystem.ViewModels.CourseVM
+
+@{
+    ViewData["Title"] = "Manage Course";
+}
+
+<div>
+
+    @{
+        string strCourseId = Model.CourseId.ToString();
+        string strCourseName = Convert.ToString(Model.Name);
+    }
+
+
+    <h2><u>Delete Existing Courses</u></h2>
+
+
+    <form action="/Course/DeleteCourse" method="post" id="frmCourse">
+
+        <h4>Course Id. : @strCourseId </h4>        
+
+        <h4>Course Name : @strCourseName </h4>        
+                
+        <div class="text-center">
+            <input type="submit" id="btnDelete" name="CourseDelete" value="Delete" />
+        </div>
+
+    </form>
+
+</div>
