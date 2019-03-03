@@ -38,7 +38,7 @@ namespace SchoolManagementSystem.Controllers
             {
                 Course objCourse = _service.SaveCourse(course);
 
-                ViewData["OperationMessage"] = "Course created successfully. Course ID. : " + objCourse.CourseId + ". Course name : " + objCourse.Name + "th";
+                ViewData["OperationMessage"] = "Course created successfully. Course ID. : " + objCourse.CourseId + ". Course name : " + objCourse.Name;
                 return View("OperationResult");
             }
             catch
@@ -63,10 +63,8 @@ namespace SchoolManagementSystem.Controllers
         {
             try
             {
-                CourseVM objCourseVM = new CourseVM();
-                objCourseVM.CourseId = course.CourseId;
-                objCourseVM.Name = course.Name;
-               
+                CourseVM objCourseVM = _service.SearchCourse(course);
+                                               
                 return View(objCourseVM);
             }
             catch

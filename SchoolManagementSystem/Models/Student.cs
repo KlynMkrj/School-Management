@@ -10,6 +10,6 @@ namespace SchoolManagementSystem.Models
         public int RollNo { get; set; }
         public int Standard { get; set; }
         public string Name { get; set; }
-        public int ContactNo { get; set; }
+        public string ContactNo { get; set; }
     }
 }
