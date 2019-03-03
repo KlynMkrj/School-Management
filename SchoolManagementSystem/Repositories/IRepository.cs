@@ -14,5 +14,6 @@ namespace SchoolManagementSystem.Repositories
 
         Course SaveCourse(Course course);
         Course SearchCourse(Course course);
+        Course DeleteCourse(Course course);
     }
 }

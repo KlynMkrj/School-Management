@@ -77,7 +77,7 @@ namespace SchoolManagementSystem.Controllers
         {
             try
             {
-                ViewData["OperationMessage"] = "Course deleted successfully. Course ID. : " + course.CourseId + ". Course Name : " + course.Name;
+                ViewData["OperationMessage"] = _service.DeleteCourse(course);
                 return View("OperationResult");
             }
             catch

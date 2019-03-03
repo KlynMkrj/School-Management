@@ -47,5 +47,13 @@ namespace SchoolManagementSystem.Services
             
             return objCourseVM;
         }
+
+        public string DeleteCourse(Course objCourse)
+        {
+            Course course = _repository.DeleteCourse(objCourse);
+            string strDeleteMessage = "Course deleted successfully. Course ID. : " + course.CourseId + ". Course Name : " + course.Name;
+
+            return strDeleteMessage;
+        }
     }
 }

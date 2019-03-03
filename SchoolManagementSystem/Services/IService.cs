@@ -14,5 +14,6 @@ namespace SchoolManagementSystem.Services
 
         Course SaveCourse(Course course);
         CourseVM SearchCourse(Course course);
+        string DeleteCourse(Course objCourse);
     }
 }

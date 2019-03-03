@@ -11,6 +11,8 @@ namespace SchoolManagementSystem.Repositories
     {
         public Student SaveStudent(Student student)
         {
+            // DB activity for save
+
             student.RollNo = 5;
 
             return student;
@@ -18,6 +20,8 @@ namespace SchoolManagementSystem.Repositories
 
         public Student SearchStudent(Student student)
         {
+            // DB activity for search
+
             student.Name = "KM";
             student.ContactNo = "(9133)26533096";
 
@@ -26,6 +30,8 @@ namespace SchoolManagementSystem.Repositories
 
         public Course SaveCourse(Course course)
         {
+            // DB activity for save
+
             course.CourseId = 3;
 
             return course;
@@ -33,7 +39,16 @@ namespace SchoolManagementSystem.Repositories
 
         public Course SearchCourse(Course course)
         {
+            // DB activity for search
+
             course.CourseId = 3;
+
+            return course;
+        }
+
+        public Course DeleteCourse(Course course)
+        {
+            // DB activity for delete
 
             return course;
         }
