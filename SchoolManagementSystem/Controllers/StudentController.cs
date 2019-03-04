@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using SchoolManagementSystem.Models;
 using SchoolManagementSystem.Services;
+using SchoolManagementSystem.Services.ExtMethods;
 using SchoolManagementSystem.ViewModels;
 
 namespace SchoolManagementSystem.Controllers
@@ -63,12 +64,11 @@ namespace SchoolManagementSystem.Controllers
         public ActionResult ManegeStudent(Student student)
         {
             try
-            {
-                StudentVM objStudentVM = new StudentVM();
-                objStudentVM.RollNo = student.RollNo;
-                objStudentVM.Name = student.Name;
-                objStudentVM.Standard = student.Standard;
-                objStudentVM.ContactNo = student.ContactNo;
+            {                
+                StudentVM objStudentVM = _service.SearchStudent(student);
+
+                TempData.Put<StudentVM>("SearchedStudent", objStudentVM);
+
                 return View(objStudentVM);
             }
             catch 
@@ -81,7 +81,11 @@ namespace SchoolManagementSystem.Controllers
         {
             try
             {
-                ViewData["OperationMessage"] = "Student updated successfully. Roll no. : " + student.RollNo + ". Standard : " + student.Standard + "th";
+                StudentVM objStudentVM;
+
+                objStudentVM = TempData.Get<StudentVM>("SearchedStudent");
+
+                ViewData["OperationMessage"] = _service.UpdateStudent(objStudentVM);
                 return View("OperationResult");
             }
             catch
@@ -93,8 +97,12 @@ namespace SchoolManagementSystem.Controllers
         public ActionResult DeleteStudent(Student student)
         {
             try
-            {
-                ViewData["OperationMessage"] = "Student deleted successfully. Roll no. : " + student.RollNo + ". Standard : " + student.Standard + "th";
+            {                
+                StudentVM objStudentVM;
+
+                objStudentVM = TempData.Get<StudentVM>("SearchedStudent");
+
+                ViewData["OperationMessage"] = _service.DeleteStudent(objStudentVM);
                 return View("OperationResult");
             }
             catch

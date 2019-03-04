@@ -52,5 +52,19 @@ namespace SchoolManagementSystem.Repositories
 
             return course;
         }
+
+        public Student DeleteStudent(Student student)
+        {
+            // DB activity for delete
+
+            return student;
+        }
+
+        public Student UpdateStudent(Student student)
+        {
+            // DB activity for update
+
+            return student;
+        }
     }
 }

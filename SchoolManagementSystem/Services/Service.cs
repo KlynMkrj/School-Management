@@ -62,6 +62,34 @@ namespace SchoolManagementSystem.Services
 
             return strDeleteMessage;
         }
-        
+
+        public string DeleteStudent(StudentVM objStudentVM)
+        {
+            Student objStudent = new Student();
+            objStudent.RollNo = objStudentVM.RollNo;
+            objStudent.Name = objStudentVM.Name;
+            objStudent.Standard = objStudentVM.Standard;
+            objStudent.ContactNo = objStudentVM.ContactNo;
+
+            Student student = _repository.DeleteStudent(objStudent);
+            string strDeleteMessage = "Student deleted successfully. Roll no. : " + student.RollNo + ". Standard : " + student.Standard + "th";
+
+            return strDeleteMessage;
+        }
+
+        public string UpdateStudent(StudentVM objStudentVM)
+        {
+            Student objStudent = new Student();
+            objStudent.RollNo = objStudentVM.RollNo;
+            objStudent.Name = objStudentVM.Name;
+            objStudent.Standard = objStudentVM.Standard;
+            objStudent.ContactNo = objStudentVM.ContactNo;
+
+            Student student = _repository.UpdateStudent(objStudent);
+            string strDeleteMessage = "Student updated successfully. Roll no. : " + student.RollNo + ". Standard : " + student.Standard + "th";
+
+            return strDeleteMessage;
+        }
+
     }
 }

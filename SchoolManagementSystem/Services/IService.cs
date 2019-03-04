@@ -11,9 +11,11 @@ namespace SchoolManagementSystem.Services
     {
         Student SaveStudent(Student student);
         StudentVM SearchStudent(Student student);
+        string DeleteStudent(StudentVM objStudentVM);
+        string UpdateStudent(StudentVM objStudentVM);
 
         string SaveCourse(Course course);
         CourseVM SearchCourse(Course course);
-        string DeleteCourse(CourseVM objCourseVM);
+        string DeleteCourse(CourseVM objCourseVM);        
     }
 }
