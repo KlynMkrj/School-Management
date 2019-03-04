@@ -17,16 +17,18 @@
 
     <form action="" method="post" id="frmStudent">
 
-        <h4>Student Roll No. : @strRoll </h4>        
+        <h4>Student Roll No. : @strRoll </h4>
 
         <h4>Student Standard : @strStandard th </h4>
-        
+
 
         <h4>Student Name :</h4>
-        <input type="text" id="txtName" name="Name" value="" />        
+        <input type="text" id="txtName" name="Name" value="" />
+        @Html.ValidationMessage("Name")
 
         <h4>Student Contact no. :</h4>
-        <input type="text" id="txtContact" name="Contact" value="" />        
+        <input type="text" id="txtContact" name="ContactNo" value="" />
+        @Html.ValidationMessage("ContactNo")
 
         <br /><br />
         <div class="text-center">

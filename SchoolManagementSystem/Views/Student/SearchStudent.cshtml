@@ -10,10 +10,12 @@
     <form action="/Student/ManegeStudent" method="post">
 
         <h4>Student Roll No. : </h4>
-        <input type="text" id="txtRoll" name="Roll" value="" />
+        <input type="text" id="txtRoll" name="RollNo" value="" />
+        @Html.ValidationMessage("RollNo")
 
         <h4>Student Standard : </h4>
         <input type="text" id="txtStandard" name="Standard" value="" />
+        @Html.ValidationMessage("Standard")
 
         <br /><br />
         <div class="text-center">

@@ -9,18 +9,17 @@
 
     <form action="/Student/SaveStudent" method="post">
 
-        <h4>
-            Name:
-        </h4>
+        <h4>Name:</h4>
         <input type="text" id="txtName" name="Name" value="" />
+        @Html.ValidationMessage("Name")
 
-        <h4>
-            Standard:
-        </h4>
+        <h4>Standard:</h4>
         <input type="text" id="txtStandard" name="Standard" value="" />
+        @Html.ValidationMessage("Standard")
 
         <h4>Contact no.:</h4>
         <input type="text" id="txtContact" name="ContactNo" value="" />
+        @Html.ValidationMessage("ContactNo")
 
         <br /><br />
         <div class="text-center">

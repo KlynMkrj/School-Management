@@ -36,9 +36,16 @@ namespace SchoolManagementSystem.Controllers
         public ActionResult SaveCourse(Course course)
         {
             try
-            {                
-                ViewData["OperationMessage"] = _service.SaveCourse(course);
-                return View("OperationResult");
+            {
+                if (ModelState.IsValid)
+                {
+                    ViewData["OperationMessage"] = _service.SaveCourse(course);
+                    return View("OperationResult");
+                }
+                else
+                {
+                    return View("AddCourse");
+                }
             }
             catch
             {
@@ -62,11 +69,18 @@ namespace SchoolManagementSystem.Controllers
         {
             try
             {
-                CourseVM objCourseVM = _service.SearchCourse(course);
-                                
-                TempData.Put<CourseVM>("SearchedCourse", objCourseVM);
+                if (ModelState.IsValid)
+                {
+                    CourseVM objCourseVM = _service.SearchCourse(course);
 
-                return View(objCourseVM);
+                    TempData.Put<CourseVM>("SearchedCourse", objCourseVM);
+
+                    return View(objCourseVM);
+                }
+                else
+                {
+                    return View("SearchCourse");
+                }
             }
             catch
             {
@@ -78,12 +92,19 @@ namespace SchoolManagementSystem.Controllers
         {
             try
             {
-                CourseVM objCourseVM;                
+                if (ModelState.IsValid)
+                {
+                    CourseVM objCourseVM;
 
-                objCourseVM = TempData.Get<CourseVM>("SearchedCourse");
+                    objCourseVM = TempData.Get<CourseVM>("SearchedCourse");
 
-                ViewData["OperationMessage"] = _service.DeleteCourse(objCourseVM);
-                return View("OperationResult");
+                    ViewData["OperationMessage"] = _service.DeleteCourse(objCourseVM);
+                    return View("OperationResult");
+                }
+                else
+                {
+                    return View("SearchCourse");
+                }
             }
             catch
             {

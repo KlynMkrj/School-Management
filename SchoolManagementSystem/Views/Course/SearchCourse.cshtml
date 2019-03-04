@@ -10,7 +10,8 @@
     <form action="/Course/ManegeCourse" method="post">
 
         <h4>Course Name : </h4>
-        <input type="text" id="txtCourseName" name="Name" value="" />        
+        <input type="text" id="txtCourseName" name="Name" value="" />
+        @Html.ValidationMessage("Name")
 
         <br /><br />
         <div class="text-center">

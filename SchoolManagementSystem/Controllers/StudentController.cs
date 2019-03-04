@@ -25,7 +25,7 @@ namespace SchoolManagementSystem.Controllers
         public ActionResult AddStudent()
         {
             try
-            {                
+            {               
                 return View();                
             }
             catch
@@ -38,10 +38,17 @@ namespace SchoolManagementSystem.Controllers
         {
             try
             {
-                Student objStudent = _service.SaveStudent(student);
+                if (ModelState.IsValid)
+                {
+                    Student objStudent = _service.SaveStudent(student);
 
-                ViewData["OperationMessage"] = "Student created successfully. Roll no. : " + objStudent.RollNo + ". Standard : " + objStudent.Standard + "th";
-                return View("OperationResult");
+                    ViewData["OperationMessage"] = "Student created successfully. Roll no. : " + objStudent.RollNo + ". Standard : " + objStudent.Standard + "th";
+                    return View("OperationResult");
+                }
+                else
+                {
+                    return View("AddStudent");
+                }
             }
             catch
             {
@@ -52,8 +59,8 @@ namespace SchoolManagementSystem.Controllers
         public ActionResult SearchStudent()
         {
             try
-            {
-                return View();
+            {                
+                return View();                                
             }
             catch
             {
@@ -64,12 +71,19 @@ namespace SchoolManagementSystem.Controllers
         public ActionResult ManegeStudent(Student student)
         {
             try
-            {                
-                StudentVM objStudentVM = _service.SearchStudent(student);
+            {
+                if (ModelState.IsValid)
+                {
+                    StudentVM objStudentVM = _service.SearchStudent(student);
 
-                TempData.Put<StudentVM>("SearchedStudent", objStudentVM);
+                    TempData.Put<StudentVM>("SearchedStudent", objStudentVM);
 
-                return View(objStudentVM);
+                    return View(objStudentVM);
+                }
+                else
+                {
+                    return View("SearchStudent");
+                }
             }
             catch 
             {
@@ -81,12 +95,19 @@ namespace SchoolManagementSystem.Controllers
         {
             try
             {
-                StudentVM objStudentVM;
+                if (ModelState.IsValid)
+                {
+                    StudentVM objStudentVM;
 
-                objStudentVM = TempData.Get<StudentVM>("SearchedStudent");
+                    objStudentVM = TempData.Get<StudentVM>("SearchedStudent");
 
-                ViewData["OperationMessage"] = _service.UpdateStudent(objStudentVM);
-                return View("OperationResult");
+                    ViewData["OperationMessage"] = _service.UpdateStudent(objStudentVM);
+                    return View("OperationResult");
+                }
+                else
+                {
+                    return View("SearchStudent");
+                }
             }
             catch
             {
@@ -97,13 +118,20 @@ namespace SchoolManagementSystem.Controllers
         public ActionResult DeleteStudent(Student student)
         {
             try
-            {                
-                StudentVM objStudentVM;
+            {
+                if (ModelState.IsValid)
+                {
+                    StudentVM objStudentVM;
 
-                objStudentVM = TempData.Get<StudentVM>("SearchedStudent");
+                    objStudentVM = TempData.Get<StudentVM>("SearchedStudent");
 
-                ViewData["OperationMessage"] = _service.DeleteStudent(objStudentVM);
-                return View("OperationResult");
+                    ViewData["OperationMessage"] = _service.DeleteStudent(objStudentVM);
+                    return View("OperationResult");
+                }
+                else
+                {
+                    return View("SearchStudent");
+                }
             }
             catch
             {

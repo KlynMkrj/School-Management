@@ -14,24 +14,10 @@ namespace SchoolManagementSystem.Controllers
         {
             return View();
         }
-
-        //public IActionResult About()
+        
+        //public IActionResult Error()
         //{
-        //    ViewData["Message"] = "Your application description page.";
-
-        //    return View();
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         //}
-
-        //public IActionResult Contact()
-        //{
-        //    ViewData["Message"] = "Your contact page.";
-
-        //    return View();
-        //}
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
