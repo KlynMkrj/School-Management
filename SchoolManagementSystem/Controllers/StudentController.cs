@@ -39,10 +39,8 @@ namespace SchoolManagementSystem.Controllers
             try
             {
                 if (ModelState.IsValid)
-                {
-                    Student objStudent = _service.SaveStudent(student);
-
-                    ViewData["OperationMessage"] = "Student created successfully. Roll no. : " + objStudent.RollNo + ". Standard : " + objStudent.Standard + "th";
+                {                    
+                    ViewData["OperationMessage"] = _service.SaveStudent(student);
                     return View("OperationResult");
                 }
                 else

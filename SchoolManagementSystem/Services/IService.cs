@@ -9,13 +9,15 @@ namespace SchoolManagementSystem.Services
 {
     public interface IService
     {
-        Student SaveStudent(Student student);
+        string SaveStudent(Student objStudent);
         StudentVM SearchStudent(Student student);
         string DeleteStudent(StudentVM objStudentVM);
         string UpdateStudent(StudentVM objStudentVM);
 
         string SaveCourse(Course course);
         CourseVM SearchCourse(Course course);
-        string DeleteCourse(CourseVM objCourseVM);        
+        string DeleteCourse(CourseVM objCourseVM);
+
+        string SaveSchedule(Schedule objSchedule);
     }
 }

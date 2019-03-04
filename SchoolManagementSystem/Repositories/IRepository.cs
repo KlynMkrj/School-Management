@@ -16,6 +16,9 @@ namespace SchoolManagementSystem.Repositories
 
         Course SaveCourse(Course course);
         Course SearchCourse(Course course);
-        Course DeleteCourse(Course course);        
+        Course DeleteCourse(Course course);
+
+        bool ValidateSchedule(Schedule schedule);
+        Schedule SaveSchedule(Schedule schedule);
     }
 }

@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Add Schedule";
+}
+
+<div>
+
+    <h2><u>Add a New Schedule</u></h2>
+
+
+    <form action="/Schedule/SaveSchedule" method="post">
+
+        <h4>Day of Week:</h4>
+        <input type="text" id="txtDay" name="DayofWeek" value="" />
+        @Html.ValidationMessage("DayofWeek")
+
+        <h4>RoomNo:</h4>
+        <input type="text" id="txtRoomNo" name="RoomNo" value="" />
+        @Html.ValidationMessage("RoomNo")
+
+        <h4>Start Time:</h4>
+        <input type="text" id="txtStartTime" name="StartTime" value="" />
+        @Html.ValidationMessage("StartTime")
+
+        <h4>End Time:</h4>
+        <input type="text" id="txtEndTime" name="EndTime" value="" />
+        @Html.ValidationMessage("EndTime")
+
+        <h4>Course Id:</h4>
+        <input type="text" id="txtCourseId" name="CourseId" value="" />
+        @Html.ValidationMessage("CourseId")
+
+        <h4>Standard:</h4>
+        <input type="text" id="txtStandard" name="Standard" value="" />
+        @Html.ValidationMessage("Standard")
+
+        <br /><br />
+        <div class="text-center">
+            <input type="submit" id="btnSubmit" name="ScheduleSubmit" value="Save" />
+        </div>
+
+    </form>
+
+</div>

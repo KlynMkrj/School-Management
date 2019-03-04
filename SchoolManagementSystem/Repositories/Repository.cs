@@ -66,5 +66,24 @@ namespace SchoolManagementSystem.Repositories
 
             return student;
         }
+
+        public bool ValidateSchedule(Schedule schedule)
+        {
+            //check if already present in DB.
+
+            if(schedule.StartTime == TimeSpan.FromHours(13))
+                return true;
+            else
+                return false;
+        }
+
+        public Schedule SaveSchedule(Schedule schedule)
+        {
+            // DB activity for save
+
+            schedule.RoomNo = 3;
+
+            return schedule;
+        }
     }
 }

@@ -16,9 +16,12 @@ namespace SchoolManagementSystem.Services
         }
 
 
-        public Student SaveStudent(Student student)
+        public string SaveStudent(Student objStudent)
         {
-            return _repository.SaveStudent(student);
+            Student student = _repository.SaveStudent(objStudent);
+            string strSaveMessage = "Student created successfully. Roll no. : " + objStudent.RollNo + ". Standard : " + objStudent.Standard + "th";
+
+            return strSaveMessage;            
         }
 
         public StudentVM SearchStudent(Student objStudent)
@@ -89,6 +92,24 @@ namespace SchoolManagementSystem.Services
             string strDeleteMessage = "Student updated successfully. Roll no. : " + student.RollNo + ". Standard : " + student.Standard + "th";
 
             return strDeleteMessage;
+        }
+
+        public string SaveSchedule(Schedule objSchedule)
+        {
+            bool blnOverlap = _repository.ValidateSchedule(objSchedule);
+
+            Schedule schedule;
+            string strSaveMessage;
+
+            if (!blnOverlap)
+            {
+                schedule = _repository.SaveSchedule(objSchedule);
+                strSaveMessage = "Schedule Created Successfully.";
+            }
+            else
+                strSaveMessage = "Overlaping Occured. Room Is Already Booked For The Given Duration.";
+
+            return strSaveMessage;
         }
 
     }
